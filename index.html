@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOVE CALCULATOR</title>
+        <style>
+            body {
+                background-image: url("https://m.media-amazon.com/images/I/91cEm+4wWIL.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100vh;
+            }
+            
+            fieldset {
+                margin: auto;
+                width: 50%;
+                text-align: center;
+            }
+            
+            input[type="text"] {
+                margin-bottom: 10px;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Love Calculator</h1>
+        <fieldset>
+            <legend>LOVE CALCULATOR</legend>
+            <label>ENTER YOUR NAME: <input type="text" id="name"></label><br>
+            <label>ENTER YOUR CRUSH NAME: <input type="text" id="crush"></label><br>
+            <button id="calculateBtn">Calculate Love</button>
+            <button id="clearBtn">Clear</button>
+            <p id="result"></p>
+        </fieldset>
+        <script>
+            const calculateBtn = document.getElementById('calculateBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const resultElem = document.getElementById('result');
+            
+            calculateBtn.addEventListener('click', function() {
+                const name = document.getElementById('name').value;
+                const crush = document.getElementById('crush').value;
+                const love = Math.floor(Math.random() * 101);
+                console.log(`${name} and ${crush}'s love is: ${love}%`);
+                resultElem.innerHTML = `${name} and ${crush}'s love is: ${love}%`;
+            });
+            
+            clearBtn.addEventListener('click', function() {
+                document.getElementById('name').value = '';
+                document.getElementById('crush').value = '';
+                resultElem.innerHTML = '';
+            });
+        </script>
+    </body>
+</html>
