@@ -42,11 +42,20 @@
             const resultElem = document.getElementById('result');
             
             calculateBtn.addEventListener('click', function() {
-                const name = document.getElementById('name').value;
-                const crush = document.getElementById('crush').value;
-                const love = Math.floor(Math.random() * 101);
-                console.log(`${name} and ${crush}'s love is: ${love}%`);
-                resultElem.innerHTML = `${name} and ${crush}'s love is: ${love}%`;
+                const name = document.getElementById('name').value.toLowerCase();
+                const crush = document.getElementById('crush').value.toLowerCase();
+                if (name === crush) {
+                    resultElem.innerHTML = "Same names cannot be entered!";
+                } else {
+                    let love;
+                    if ((name === 'himakar' && crush === 'varshitha') || (name === 'varshitha' && crush === 'himakar') || (name === 'himakar' && crush === 'bhavana') || (name === 'bhavana' && crush === 'himakar')) {
+                        love = 100;
+                    } else {
+                        love = Math.floor(Math.random() * 101);
+                    }
+                    console.log(`${name} and ${crush}'s love is: ${love}%`);
+                    resultElem.innerHTML = `${name} and ${crush}'s love is: ${love}%`;
+                }
             });
             
             clearBtn.addEventListener('click', function() {
